@@ -27,7 +27,6 @@ for (i = 0; i < close.length; i++) {
 
 if ( window !== window.parent ) 
 {
-	
-	window.location.replace("https://www.paragram.repl.co");
+	alert("plz open in new tab");
 } 
 </script>
