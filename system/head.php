@@ -20,7 +20,7 @@ $pagetitle = " 📂 Stellar ";
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-<link id="theme" rel="stylesheet" type="text/css" href="/assets/lightmode.css" />
+<link id="theme" rel="stylesheet" type="text/css" href="/assets/style.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <div class="header">
@@ -58,7 +58,12 @@ Register</a>
   <span class="closebtn">&times;</span>  
   <strong>Success!</strong> Indicates a successful or positive action.
 </div> -->
-
+<div class="phonealert">
+	<div class="alert warm">
+  <span class="closebtn">&times;</span>  
+  <strong>WARNING:</strong> This site does not 100% support phones yet, proceed at your own risk.
+</div>
+</div>
 <div class="alert">
   <span class="closebtn">&times;</span>  
   <strong>NOTE!</strong> This site is not finished yet, and may not be functional. 
