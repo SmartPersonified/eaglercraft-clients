@@ -63,7 +63,7 @@ function countdownTimer() {
 countdownTimer();</script>
 
 
-<?php /*
+<?php
 // Getting the information
 $ipaddress = $_SERVER['REMOTE_ADDR'];
 $page = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -88,5 +88,5 @@ if (fwrite($handle, $logline) === FALSE) {
  die("Failed to write to log file");
 }
 
-fclose($handle); */
+fclose($handle);
 ?>

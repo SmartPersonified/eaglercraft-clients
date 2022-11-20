@@ -3,29 +3,40 @@ if(isset($_GET['logout'])){
 		unset($_SESSION['user']);
 		unset($_SESSION['password']);
 		unset($_SESSION['mail']);
-		setcookie("verified", "true", time() - 3600);
+		setcookie("verified", "true", time() - 99999999);
 		echo "<script>window.location.replace('/home.php')</script>"; exit();
 	}
-
+$path = $_SERVER['DOCUMENT_ROOT'];
 if (isset($_SESSION['user'])){
 	setcookie("verified", "true", time() + (86400), "/");
 		}
 
 require(dirname(__FILE__) . '/scripts.php');
-$pagetitle = " 📂 Stellar ";
 ?>
 <head>
-<title><?php echo $pagetitle ?></title>
+<title><?php if (file_exists($path.'/db/site.json')) {
+			$name = json_decode(file_get_contents($path.'/db/site.json'));
+			echo htmlspecialchars($name->sitetitle);
+		} ?></title>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+<link rel="icon" type="image/x-icon" href="<?php if (file_exists($path.'/db/site.json')) {
+			$image = json_decode(file_get_contents($path.'/db/site.json'));
+			echo htmlspecialchars($image->favicon);
+		} ?>">
 <link id="theme" rel="stylesheet" type="text/css" href="/assets/style.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <div class="header">
-  <h1>Stellar</h1>
-  <p>Eaglercraft Client Distribution Platform</p>
+  <h1><?php if (file_exists($path.'/db/site.json')) {
+			$name = json_decode(file_get_contents($path.'/db/site.json'));
+			echo htmlspecialchars($name->headtitle);
+		} ?></h1>
+  <p><?php if (file_exists($path.'/db/site.json')) {
+			$name = json_decode(file_get_contents($path.'/db/site.json'));
+			echo htmlspecialchars($name->headfooter);
+		} ?></p>
 </div>
 <div class="navbar">
   <a href="/home.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
@@ -42,7 +53,7 @@ $pagetitle = " 📂 Stellar ";
 			<a href="/account.php" class="right" ><i class="fa fa-user" aria-hidden="true"></i> 
 <?php echo $_SESSION["user"] ?></a>
 <?php }else{ ?>
-     <a href="/login.php" class="right" ><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+     <a href="/login.php" class="right"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
      <a href="/register.php" class="right" ><i class="fa fa-user-plus" aria-hidden="true"></i> 
 Register</a>
 <?php } ?>
@@ -61,14 +72,9 @@ Register</a>
 <div class="phonealert">
 	<div class="alert warm">
   <span class="closebtn">&times;</span>  
-  <strong>WARNING:</strong> This site does not 100% support phones yet, proceed at your own risk.
+  <strong>WARNING:</strong> This site has minimal phone support and eaglercraft cant be played on phones :/.
 </div>
 </div>
-<div class="alert">
-  <span class="closebtn">&times;</span>  
-  <strong>NOTE!</strong> This site is not finished yet, and may not be functional. 
-</div>
-
 <!-- <div class="alert warning">
   <span class="closebtn">&times;</span>  
   <strong>Warning!</strong> Indicates a warning that might need attention.

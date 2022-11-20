@@ -24,9 +24,9 @@ for (i = 0; i < close.length; i++) {
 
  
 
-
+/*
 if ( window !== window.parent ) 
 {
 	alert("plz open in new tab");
-} 
+} */
 </script>

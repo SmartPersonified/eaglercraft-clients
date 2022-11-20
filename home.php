@@ -9,11 +9,17 @@ $_SESSION['pagetitle'] = "Home";
   <div class="side">
     <h2>About the site</h2>
     <h5>What its for:</h5>
-		<p> This site is a collection of every hacked or non hacked client for EaglerCraft. To use you must login/register to view our collection. If you wish to add a client to our system you must submit its source code to <a href="https://github.com/Paragramex">Paragram</a> as for him to verify that it is not a password grabber.</p>
+		<p><?php if (file_exists($path.'/db/site.json')) {
+			$name = json_decode(file_get_contents($path.'/db/site.json'));
+			echo htmlspecialchars_decode($name->aboutsite);
+		} ?></p>
 		<h5>What is EaglerCraft?</h5>
     <p> Eaglercraft is a 1.5.2 minecraft javascript runtime made by LAX1DUDE</p>
     <h3> Disclaimer: </h3>
-    <p> We (the developers who made this site and the client developers) take no responsibility for your actions with anything on this site, by using our service you agree to these terms automatically</p>
+    <p><?php if (file_exists($path.'/db/site.json')) {
+			$name = json_decode(file_get_contents($path.'/db/site.json'));
+			echo htmlspecialchars_decode($name->disclaimer);
+		} ?></p>
     <div class="fakeimg" onclick="location.href = 'https://minekhan.thingmaker.repl.co/';" style="height:60px;">MineKhan 1.0.5 (a clone of minecraft thats also fun)</div><br>
     <div class="fakeimg" onclick="location.href = '/account.php';" style="height:60px;">View Our Collection</div><br>
     <div class="fakeimg" onclick="location.href = '/';" style="height:60px;">Submit a Client Here! [Coming Soon]</div>

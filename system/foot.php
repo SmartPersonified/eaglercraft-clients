@@ -1,6 +1,7 @@
 <div class="footer">
- <marquee scrollamount="15" > <p>this site is made and mantained by <a href="https://github.com/Paragramex/" style="color:red;"> Paragram</a> <i class="fa fa-copyright" aria-hidden="true"></i> 
- 2022</p></marquee>
+ <marquee scrollamount="15" > <p><?php if (file_exists($path.'/db/site.json')) {
+			$name = json_decode(file_get_contents($path.'/db/site.json'));
+			echo htmlspecialchars_decode($name->footer);} ?></p></marquee>
 </div>
 <script src="/assets/clipboard.min.js"></script>
 <script>
